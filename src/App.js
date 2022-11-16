@@ -1,23 +1,59 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
+import {useState, useEffect} from 'react';
+import AllCelebrities from './components/AllCelebrities';
+import AllMovies from './components/AllMovies';
+
+
 
 function App() {
+
+const [theCelebrities, setTheCelebrities] = useState([]);
+const [theMovies, setTheMovies] = useState([]);
+
+
+const fetchCelebrities = () => {
+  //axios is a library that fetches info from any api
+  axios.get('http://localhost:3000/celebrities') //fetches info from this website
+  .then((celebritiesFromDb) => { //then it takes said info that it grabbed
+    console.log({celebritiesFromDb}) //print info onto screen
+    setTheCelebrities(celebritiesFromDb.data.celebrities);
+  })
+  .catch((err) => {
+    console.log(err)
+  });
+  }
+  
+  
+  const fetchMovies = () => {
+  axios.get('http://localhost:3000/movies')
+  .then((moviesFromDb) => {
+    console.log({moviesFromDb})
+    setTheMovies(moviesFromDb.data);
+  })
+  .catch((err) => {
+    console.log(err)
+  });
+  }
+
+
+useEffect(() => {
+  fetchMovies();
+}, []);
+
+useEffect(() => {
+  fetchCelebrities();
+}, []);
+
+
+console.log(theCelebrities);
+console.log(theMovies);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <AllCelebrities theCelebrities={theCelebrities} fetchCelebrities={fetchCelebrities}/>
+    <AllMovies theMovies={theMovies} fetchMovies={fetchMovies}/>
     </div>
   );
 }
