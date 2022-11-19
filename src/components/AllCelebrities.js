@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 export default function AllCelebrities({theCelebrities, fetchCelebrities}) {
 
@@ -7,10 +8,10 @@ export default function AllCelebrities({theCelebrities, fetchCelebrities}) {
     const listOfCelebrities = theCelebrities.map((eachCelebrity)=>{
 
         return(<div key={eachCelebrity._id} className="celebrity-list-item">
-            {/* <Link to={"/locations/"+eachCelebrity._id}> */}
+            <Link to={"/AllCelebrities/"+eachCelebrity._id}>
             <h3>{eachCelebrity.name}</h3>
-            <p>{eachCelebrity.occupation}, {eachCelebrity.catchPhrase}</p>
-            {/* </Link> */}
+            </Link>
+            {/* <p>{eachCelebrity.occupation}, {eachCelebrity.catchPhrase}</p> */}
             {/* <button onClick={()=>{deleteCelebrity(eachCelebrity._id)}}>Delete This Celebrity</button> */}
             </div>)
 

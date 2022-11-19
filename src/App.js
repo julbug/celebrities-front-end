@@ -4,6 +4,8 @@ import axios from 'axios'
 import {useState, useEffect} from 'react';
 import AllCelebrities from './components/AllCelebrities';
 import AllMovies from './components/AllMovies';
+import CelebritiesDetails from './components/CelebritiesDetails';
+import {Link, Route, Routes} from "react-router-dom"
 
 
 
@@ -54,6 +56,11 @@ console.log(theMovies);
     <div className="App">
     <AllCelebrities theCelebrities={theCelebrities} fetchCelebrities={fetchCelebrities}/>
     <AllMovies theMovies={theMovies} fetchMovies={fetchMovies}/>
+
+    
+    <Routes>
+    <Route path="/AllCelebrities/:id" element = {<CelebritiesDetails />} />
+    </Routes>
     </div>
   );
 }

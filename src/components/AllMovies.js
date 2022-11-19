@@ -8,9 +8,9 @@ export default function AllMovies({theMovies, fetchMovies}) {
     const listOfMovies = theMovies.map((eachMovies)=>{
 
         return(<div key={eachMovies._id} className="movie-list-item">
-            <Link to={"/MoviesDetails/"+eachMovies._id}>
+            <Link to={"/AllMovies/"+eachMovies._id}>
             <h3>{eachMovies.title}</h3>
-            <p>{eachMovies.genre}, {eachMovies.plot}</p>
+            {/* <p>{eachMovies.genre}, {eachMovies.plot}</p> */}
             </Link>
             {/* <button onClick={()=>{deleteCelebrity(eachMovies._id)}}>Delete This Celebrity</button> */}
             </div>)
