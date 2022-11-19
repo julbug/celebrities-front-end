@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 export default function AllMovies({theMovies, fetchMovies}) {
 
-    console.log(typeof theMovies)
+    // console.log(typeof theMovies)
 
     const listOfMovies = theMovies.map((eachMovies)=>{
 
