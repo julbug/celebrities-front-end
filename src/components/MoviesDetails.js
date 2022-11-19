@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import {useState, useEffect} from 'react';
+import {Link} from "react-router-dom";
 
 
 
 export default function MoviesDetails(){
     const {id} = useParams();
-    // console.log(id);
+    console.log(id);
 
     const [theMovie, setTheMovie] = useState({});
    
@@ -27,15 +28,26 @@ export default function MoviesDetails(){
     },[id])
 
     console.log(theMovie);
+
+
     return(
-        <div className='movies-list-component'>
-            <div className='movie-list'>
+    
+        <div key={theMovie}>
+        
             <h3>{theMovie.title}</h3>
                 <p>{theMovie.genre}</p>
                 <p>{theMovie.plot}</p>
-                <p>{theMovie.cast}</p>
+                <div>
+                {theMovie.cast && theMovie.cast.map((castMembers) => {
+                    return(
+                        <div>
+                            <p>{castMembers.name}</p>
+                        </div>
+                    )
+                })}
+
+                </div>
             </div>
             
-        </div>
     )
 }

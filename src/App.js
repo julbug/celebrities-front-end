@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
 import {useState, useEffect} from 'react';
@@ -6,6 +6,8 @@ import AllCelebrities from './components/AllCelebrities';
 import AllMovies from './components/AllMovies';
 import CelebritiesDetails from './components/CelebritiesDetails';
 import MoviesDetails from './components/MoviesDetails';
+import CreateCelebrity from './components/CreateCelebrity';
+import CreateMovie from './components/CreateMovie';
 import {Link, Route, Routes} from "react-router-dom"
 
 
@@ -65,13 +67,22 @@ useEffect(() => {
     <Link to = "/movies" >
     All Movies
     </Link>
+    
 
     {/* links to other pages within the app */}
     <Routes>
     <Route path="/celebrities" element = {<AllCelebrities theCelebrities={theCelebrities} fetchCelebrities={fetchCelebrities} />} />
+
     <Route path="/movies" element = {<AllMovies theMovies={theMovies} fetchMovies={fetchMovies}/>} />
+
     <Route path="/celebrities/:id" element = {<CelebritiesDetails />} />
+
     <Route path="/movies/:id" element = {<MoviesDetails />} />
+
+    <Route path="/celebrities/create" element = {<CreateCelebrity fetchCelebrities = {fetchCelebrities} />} />
+
+    <Route path="/movies/create" element = {<CreateMovie />} />
+
     </Routes>
 
     </div>

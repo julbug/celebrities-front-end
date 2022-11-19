@@ -8,7 +8,7 @@ export default function AllMovies({theMovies, fetchMovies}) {
     const listOfMovies = theMovies.map((eachMovies)=>{
 
         return(<div key={eachMovies._id} className="movie-list-item">
-            <Link to={"/AllMovies/"+eachMovies._id}>
+            <Link to={"/movies/"+eachMovies._id}>
             <h3>{eachMovies.title}</h3>
             {/* <p>{eachMovies.genre}, {eachMovies.plot}</p> */}
             </Link>
@@ -21,7 +21,8 @@ export default function AllMovies({theMovies, fetchMovies}) {
 return(
     <div className="list-movies-container">
        <h1>Movies</h1>
-       {listOfMovies}       
+       {listOfMovies}  
+       <p><Link to="/movies/create">Add Movie</Link></p>     
     </div>
     )
 }
