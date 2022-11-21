@@ -8,6 +8,7 @@ import CelebritiesDetails from './components/CelebritiesDetails';
 import MoviesDetails from './components/MoviesDetails';
 import CreateCelebrity from './components/CreateCelebrity';
 import CreateMovie from './components/CreateMovie';
+import EditCelebrity from './components/EditCelebrity';
 import {Link, Route, Routes} from "react-router-dom"
 
 
@@ -82,6 +83,8 @@ useEffect(() => {
     <Route path="/celebrities/create" element = {<CreateCelebrity fetchCelebrities = {fetchCelebrities} />} />
 
     <Route path="/movies/create" element = {<CreateMovie />} />
+
+    <Route path="/celebrities/:id" element = {<EditCelebrity />} />
 
     </Routes>
 
