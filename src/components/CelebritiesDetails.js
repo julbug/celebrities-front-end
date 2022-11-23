@@ -1,12 +1,24 @@
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import {useState, useEffect} from 'react';
+import EditCelebrity from "./EditCelebrity";
 
 
 
-export default function CelebritiesDetails(){
+
+export default function CelebritiesDetails({fetchCelebrities, theUser}){
     const {id} = useParams();
     // console.log(id, "hishdf");
+
+    const [editing, setEditing] = useState(false);
+
+    const edit = () =>{
+        setEditing(true);
+    }
+
+    const stopEditing = () =>{
+        setEditing(false);
+    }
 
     const [theCelebrity, setTheCelebrity] = useState({});
    
@@ -30,11 +42,15 @@ export default function CelebritiesDetails(){
     return(
         <div className='celebrities-list-component'>
             <div className='celebrity-list'>
+            {editing && <EditCelebrity fetchCelebrities={fetchCelebrities} stopEditing={setEditing} celebrity={theCelebrity} />}
+        </div>
+        {!editing && <div>
+        <p><button onClick={edit}>edit</button></p>
             <h3>{theCelebrity.name}</h3>
                 <p>{theCelebrity.occupation}</p>
                 <p>{theCelebrity.catchPhrase}</p>
+            </div>}
             </div>
-            
-        </div>
+        
     )
 }

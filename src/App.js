@@ -76,13 +76,13 @@ useEffect(() => {
 
     <Route path="/movies" element = {<AllMovies theMovies={theMovies} fetchMovies={fetchMovies}/>} />
 
-    <Route path="/celebrities/:id" element = {<CelebritiesDetails />} />
-
-    <Route path="/movies/:id" element = {<MoviesDetails />} />
-
     <Route path="/celebrities/create" element = {<CreateCelebrity fetchCelebrities = {fetchCelebrities} />} />
 
     <Route path="/movies/create" element = {<CreateMovie />} />
+
+    <Route path="/celebrities/:id" element = {<CelebritiesDetails />} />
+
+    <Route path="/movies/:id" element = {<MoviesDetails />} />
 
     <Route path="/celebrities/:id" element = {<EditCelebrity />} />
 
