@@ -41,12 +41,12 @@ export default function CelebritiesDetails({fetchCelebrities, theUser}){
     console.log(theCelebrity);
     return(
         <div className='celebrities-list-component'>
-            <div className='celebrity-list'>
+    
             {editing && <EditCelebrity fetchCelebrities={fetchCelebrities} stopEditing={setEditing} celebrity={theCelebrity} />}
-        </div>
-        {!editing && <div>
-        <p><button onClick={edit}>edit</button></p>
-            <h3>{theCelebrity.name}</h3>
+       
+            {!editing && <div>
+            <p><button onClick={edit}>edit</button></p>
+                <h3>{theCelebrity.name}</h3>
                 <p>{theCelebrity.occupation}</p>
                 <p>{theCelebrity.catchPhrase}</p>
             </div>}

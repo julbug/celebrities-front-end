@@ -10,6 +10,8 @@ import CreateCelebrity from './components/CreateCelebrity';
 import CreateMovie from './components/CreateMovie';
 import EditCelebrity from './components/EditCelebrity';
 import {Link, Route, Routes} from "react-router-dom"
+import EditMovie from './components/EditMovie';
+import DeleteCelebrity from './components/DeleteCelebrity';
 
 
 
@@ -85,6 +87,10 @@ useEffect(() => {
     <Route path="/movies/:id" element = {<MoviesDetails />} />
 
     <Route path="/celebrities/:id" element = {<EditCelebrity />} />
+
+    <Route path="/movies/:id" element = {<EditMovie />} />
+    
+    <Route path="/movies/:id" element = {<DeleteCelebrity />} />
 
     </Routes>
 

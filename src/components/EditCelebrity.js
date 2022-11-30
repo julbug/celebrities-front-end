@@ -17,13 +17,13 @@ export default function EditCelebrity({celebrity, stopEditing, fetchCelebrities}
 
 
     const submitForm = () =>{
-        axios.post("http://localhost:3000/celebrities/edit/"+celebrity._id, {
+        axios.post("http://localhost:3000/celebrities/"+celebrity._id, {
             name: formState.name,
             occupation: formState.occupation,
             catchPhrase: formState.catchPhrase,
         }).then((response)=>{
-
-            fetchCelebrities();
+console.log(response)
+            // fetchCelebrities();
 
 
         }).catch((err)=>{

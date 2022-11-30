@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import axios from 'axios';
 import {useState, useEffect} from 'react';
 import CreateCelebrity from './CreateCelebrity';
+import DeleteCelebrity from './DeleteCelebrity';
 
 export default function AllCelebrities({theCelebrities}) {
 
@@ -33,7 +34,7 @@ export default function AllCelebrities({theCelebrities}) {
             <Link to={"/celebrities/"+eachCelebrity._id}>
             <h3>{eachCelebrity.name}</h3>
             </Link>
-            {/* <button onClick={()=>{deleteCelebrity(eachCelebrity._id)}}>Delete This Celebrity</button> */}
+            <button onClick={()=>{DeleteCelebrity(eachCelebrity._id)}}>Delete This Celebrity</button>
             </div>)
           
 
